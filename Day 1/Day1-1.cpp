@@ -15,8 +15,8 @@ string parseWrittenNumbers(string line);
 int main()
 {
 
-    cout << part1("tests/puzzleInput.txt");
-    cout << part2("tests/puzzleInput.txt");
+    cout << part1("tests/puzzleInput.txt") << "\n";
+    cout << part2("tests/test2.txt");
 
 
     return 0;
@@ -35,7 +35,6 @@ int part1(string fileName){
         string numL;
         string numR;
 
-        cout << line << "\n";
 
         // Get number on right;
 
@@ -75,7 +74,7 @@ int part2(string fileName){
     
     int total = 0;
     string line;
-
+    
     ifstream file(fileName);
     
     while (getline(file,line)){
@@ -138,7 +137,6 @@ string parseWrittenNumbers(string line){
                 for(int i = 0; i < 9; i++){
                     if(buildWord.compare(numberWords[i])== 0){
                         newLine += to_string(i + 1);
-                        index += offSet  -1;
                         offSet = 6;
                         break;
                     }

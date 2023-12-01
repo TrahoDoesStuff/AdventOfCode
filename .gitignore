@@ -26,6 +26,10 @@
 *.a
 *.lib
 
+*.ilk
+*.pdb
+
+
 # Executables
 *.exe
 *.out

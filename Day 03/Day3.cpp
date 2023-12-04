@@ -18,7 +18,7 @@ int max(int a , int b);
 int main()
 {
 
-    cout << "\n Part 1:" << part1("test/patternInput.txt");
+    cout << "\n Part 1:" << part1("tests/patternInput.txt");
     cout << "\n Part 2:" << part2("tests/patternInput.txt");
 
 

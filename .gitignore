@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 
+
 # Compiled Object files
 *.slo
 *.lo
@@ -36,4 +37,6 @@
 *.app
 
 .vscode/*
-*.txt
+puzzleInput.txt
+patternInput.txt
+

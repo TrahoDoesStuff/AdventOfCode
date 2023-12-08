@@ -37,6 +37,7 @@
 *.app
 *.txt
 .vscode/*
+*/tests
 puzzleInput.txt
 patternInput.txt
 

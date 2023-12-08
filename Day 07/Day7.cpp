@@ -25,7 +25,7 @@ bool compareCardSets(cardSort card1, cardSort card2);
 int main(){
     //cout << "part 1:" << part1("tests/puzzleInput.txt") << "\n";
     
-    cout << "part 2:" << part2("tests/test2.txt") << "\n";
+    cout << "part 2:" << part2("tests/puzzleInput.txt") << "\n";
 }
 
 class cardSort{
@@ -50,7 +50,7 @@ class cardSort{
 
     void calculateCardScores2(){
        for(int i = 0; i < 5; i++){
-        cardScores.push_back(getCardValue2(i));
+            cardScores.push_back(getCardValue2(i));
        } 
 
         return;
@@ -71,7 +71,7 @@ class cardSort{
 
     int getCardValue2(int cardIndex){
 
-        char values[13] = {'A', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3','2', 'K'};
+        char values[13] = {'A','K', 'Q',  'T', '9', '8', '7', '6', '5', '4', '3','2','J'};
         char c = card[cardIndex];
 
         for(int i = 0; i < 13; i++){
@@ -171,6 +171,7 @@ class cardInfo{
         }
 
         int jokerNum = jokerCount();
+        cout << jokerNum << "\n";
         if(jokerNum == 5){
             return 7;
         }
@@ -207,6 +208,9 @@ class cardInfo{
                 return 7;
             }
             if(accumChars.size() == 3){
+                if(accumNums[0] == 3 || accumNums[1] == 3 || accumNums[2] == 3){
+                    return 6;
+                }
                 return 5;
             }
             if(accumChars.size() == 4){
@@ -223,16 +227,15 @@ class cardInfo{
 
 
     bool containsJoker(){
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < accumChars.size(); i++){
             if(accumChars[i] == 'J') return true;
         }
-        cout << "nod joker" << "\n";
         return false;
     }
 
     int jokerCount(){
-        for(int i= 0; i < 5; i++){
-            if(accumChars[i] == 'J') cout << "found j" << "\n"; return accumNums[i];
+        for(int i= 0; i < accumChars.size(); i++){
+            if(accumChars[i] == 'J') return accumNums[i];
         }
 
         return 0;

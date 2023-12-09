@@ -6,21 +6,18 @@
 using namespace std;
 
 int part1(string fileName);
-// int part2(string fileName);
+int part2(string fileName);
 
-int getnextValue(vector<int> sequence);
-// int getpreviousvalue(vector<int> sequence);
+int getnextvalue(vector<int> sequence);
+int getpreviousvalue(vector<int> sequence);
 
 vector<string> split(string line, char c);
 
 int main() {
-  // int part1A = part1("test1.txt");
-  //  int part2A = part2("test1.txt");
 
-  // cout << "part 1:" << part1A << "\n";
-  //  cout << "part 2:" << part2A << "\n";
+  cout << "part 1:" << part1("test1.txt") << "\n";
+  cout << "part 2:" << part2("puzzleInput.txt") << "\n";
 
-  return 0;
 }
 
 int part1(string fileName) {
@@ -37,13 +34,12 @@ int part1(string fileName) {
       sequence.push_back(stoi(temp[i]));
     }
 
-    total += getnextValue(sequence);
+    total += getnextvalue(sequence);
   }
 
   return total;
 }
 
-/**
 int part2(string fileName) {
   ifstream oasis(fileName);
   string line;
@@ -63,7 +59,6 @@ int part2(string fileName) {
 
   return total;
 }
-*/
 
 int getnextvalue(vector<int> sequence) {
   vector<int> difference = {};
@@ -78,20 +73,18 @@ int getnextvalue(vector<int> sequence) {
   }
 
   cout << "\n";
-  if (sequence.size() == 0) {
-    return 0;
-  }
+
   if (allzero == false) {
     return sequence[sequence.size() - 1] + getnextvalue(difference);
-  } else {
+  } 
 
-    int value = sequence.size() - 1;
-    cout << sequence[0] << "\n";
-    return sequence[0];
-  }
+  int value = sequence.size() - 1;
+  cout << sequence[value] << "\n";
+  return sequence[value];
+
 }
-/*
-int getpreviousvalue(vector<int> sequence) {
+
+int getpreviousvalue(vector<int> sequence){
   vector<int> difference = {};
   bool allzero = true;
 
@@ -104,19 +97,15 @@ int getpreviousvalue(vector<int> sequence) {
   }
 
   cout << "\n";
-  if (sequence.size() == 0) {
-    return 0;
-  }
-  if (allzero == false) {
-    return sequence[sequence.size() - 1] + getnextvalue(difference);
-  } else {
 
-    int value = sequence.size() - 1;
-    cout << sequence[0] << "\n";
-    return sequence[0];
-  }
+  if (allzero == false) {
+    return sequence[0] - getpreviousvalue(difference);
+  } 
+
+  int value = sequence.size() - 1;
+  cout << sequence[0] << "\n";
+  return sequence[0];
 }
-*/
 vector<string> split(string line, char c) {
   vector<string> splitValues;
 

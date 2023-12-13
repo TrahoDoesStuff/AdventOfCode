@@ -66,20 +66,17 @@ int getnextvalue(vector<int> sequence) {
 
   for (int i = 1; i < sequence.size(); i++) {
     difference.push_back(sequence[i] - sequence[i - 1]);
-    cout << difference[i - 1] << ",";
     if (difference[i - 1] != 0) {
       allzero = false;
     }
   }
 
-  cout << "\n";
 
   if (allzero == false) {
     return sequence[sequence.size() - 1] + getnextvalue(difference);
   } 
 
   int value = sequence.size() - 1;
-  cout << sequence[value] << "\n";
   return sequence[value];
 
 }
@@ -90,20 +87,17 @@ int getpreviousvalue(vector<int> sequence){
 
   for (int i = 1; i < sequence.size(); i++) {
     difference.push_back(sequence[i] - sequence[i - 1]);
-    cout << difference[i - 1] << ",";
     if (difference[i - 1] != 0) {
       allzero = false;
     }
   }
 
-  cout << "\n";
 
   if (allzero == false) {
     return sequence[0] - getpreviousvalue(difference);
   } 
 
   int value = sequence.size() - 1;
-  cout << sequence[0] << "\n";
   return sequence[0];
 }
 vector<string> split(string line, char c) {
